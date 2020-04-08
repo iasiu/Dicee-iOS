@@ -12,13 +12,17 @@ class ViewController: UIViewController {
     // refrence to the button which rolls the dice
     @IBOutlet weak var rollButton: UIButton!
     // refrence to image displaying dice on the left
-    @IBOutlet weak var firstDiceImageView: UIImageView!
+    @IBOutlet weak var dice1ImageView: UIImageView!
     // refrence to image displaying dice on the right
-    @IBOutlet weak var secondDiceImageView: UIImageView!
+    @IBOutlet weak var dice2ImageView: UIImageView!
     
-    // represents values shown on dice
-    var value1 = 1
-    var value2 = 1
+    // dict with values and corresponding dice image names
+    var imageNames = [1: "DiceOne",
+                      2: "DiceTwo",
+                      3: "DiceThree",
+                      4: "DiceFour",
+                      5: "DiceFive",
+                      6: "DiceSix"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,33 +30,16 @@ class ViewController: UIViewController {
         // give the rollButton rounded corners
         rollButton.layer.cornerRadius = 5
         
-        // set the images of firstDice and secondDice to DiceOne
-        firstDiceImageView.image = UIImage(named: "DiceOne")
-        secondDiceImageView.image = UIImage(named: "DiceOne")
-    }
-    // triggered when rollButton is pressed
-    @IBAction func rollButtonTouchUp(_ sender: UIButton) {
-        // dict with names of images corresponding to values
-        let imgNames = [1: "DiceOne",
-                        2: "DiceTwo",
-                        3: "DiceThree",
-                        4: "DiceFour",
-                        5: "DiceFive",
-                        6: "DiceSix"]
-        
-        // set dice values to random between 1 and 6
-        value1 = Int.random(in: 1 ... 6)
-        value2 = Int.random(in: 1 ... 6)
-        
-        // change images of dice according to value
-        changeImage(imgView: firstDiceImageView, imgName: imgNames[value1]!)
-        changeImage(imgView: secondDiceImageView, imgName: imgNames[value2]!)
+        // set the images of dice1 and dice2 to DiceOne
+        dice1ImageView.image = UIImage(named: "DiceOne")
+        dice2ImageView.image = UIImage(named: "DiceOne")
     }
     
-    //func changes given imageView to image of name imgName
-    func changeImage(imgView: UIImageView, imgName: String) -> Void{
-        imgView.image = UIImage(named: imgName)
+    // triggered when rollButton is pressed
+    @IBAction func rollButtonTouchUp(_ sender: UIButton) {
+        // change dice images to new random
+        dice1ImageView.image = UIImage(named: imageNames[Int.random(in: 1 ... 6)]!)
+        dice2ImageView.image = UIImage(named: imageNames[Int.random(in: 1 ... 6)]!)
     }
-
 }
 

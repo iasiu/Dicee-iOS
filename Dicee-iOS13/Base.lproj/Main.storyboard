@@ -69,9 +69,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="firstDiceImageView" destination="olb-HK-paK" id="yUK-lX-zN0"/>
+                        <outlet property="dice1ImageView" destination="olb-HK-paK" id="yUK-lX-zN0"/>
+                        <outlet property="dice2ImageView" destination="dp7-6c-HM9" id="gwL-p1-3dP"/>
                         <outlet property="rollButton" destination="ZgK-Ze-TUg" id="Yty-8f-pNP"/>
-                        <outlet property="secondDiceImageView" destination="dp7-6c-HM9" id="gwL-p1-3dP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
