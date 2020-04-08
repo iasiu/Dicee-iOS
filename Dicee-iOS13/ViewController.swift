@@ -9,14 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    // refrence to the button which rolls the dices
+    // refrence to the button which rolls the dice
     @IBOutlet weak var rollButton: UIButton!
     // refrence to image displaying dice on the left
     @IBOutlet weak var firstDiceImageView: UIImageView!
     // refrence to image displaying dice on the right
     @IBOutlet weak var secondDiceImageView: UIImageView!
     
-    // represents values shown on dices
+    // represents values shown on dice
     var value1 = 1
     var value2 = 1
     
@@ -40,9 +40,11 @@ class ViewController: UIViewController {
                         5: "DiceFive",
                         6: "DiceSix"]
         
+        // set dice values to random between 1 and 6
         value1 = Int.random(in: 1 ... 6)
         value2 = Int.random(in: 1 ... 6)
         
+        // change images of dice according to value
         changeImage(imgView: firstDiceImageView, imgName: imgNames[value1]!)
         changeImage(imgView: secondDiceImageView, imgName: imgNames[value2]!)
     }
